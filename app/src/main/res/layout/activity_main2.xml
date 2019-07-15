@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.Main2Activity">
+
+    <androidx.viewpager.widget.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/view_page"
+        android:layout_weight="1">
+
+    </androidx.viewpager.widget.ViewPager>
+   <LinearLayout
+       android:padding="5dp"
+       android:orientation="horizontal"
+       android:background="@color/write"
+       android:layout_width="match_parent"
+       android:layout_height="60dp">
+       <LinearLayout
+           android:id="@+id/layout_main"
+           android:orientation="vertical"
+           android:layout_weight="1"
+           android:gravity="center"
+           android:layout_width="wrap_content"
+           android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/main_image"
+                android:scaleType="fitXY"
+                android:src="@drawable/home"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+
+           <TextView
+               android:textColor="@color/bule"
+               android:id="@+id/main_text"
+               android:layout_width="wrap_content"
+               android:layout_height="match_parent"
+               android:text="首页" />
+       </LinearLayout>
+       <LinearLayout
+           android:id="@+id/layout_ganh"
+           android:orientation="vertical"
+           android:layout_weight="1"
+           android:gravity="center"
+           android:layout_width="wrap_content"
+           android:layout_height="match_parent">
+           <ImageView
+               android:id="@+id/ganh_image"
+               android:scaleType="fitXY"
+               android:src="@drawable/write"
+               android:layout_width="35dp"
+               android:layout_height="35dp" />
+
+           <TextView
+               android:id="@+id/ganh_text"
+               android:layout_width="wrap_content"
+               android:layout_height="match_parent"
+               android:text="干货" />
+       </LinearLayout>
+       <LinearLayout
+           android:id="@+id/layout_video"
+           android:orientation="vertical"
+           android:layout_weight="1"
+           android:gravity="center"
+           android:layout_width="wrap_content"
+           android:layout_height="match_parent">
+           <ImageView
+               android:id="@+id/ship_image"
+               android:scaleType="fitXY"
+               android:src="@mipmap/img_default"
+               android:layout_width="35dp"
+               android:layout_height="35dp" />
+
+           <TextView
+               android:id="@+id/ship_text"
+               android:layout_width="wrap_content"
+               android:layout_height="match_parent"
+               android:text="视频" />
+       </LinearLayout>
+       <LinearLayout
+           android:id="@+id/layout_my"
+           android:orientation="vertical"
+           android:layout_weight="1"
+           android:gravity="center"
+           android:layout_width="wrap_content"
+           android:layout_height="match_parent">
+           <ImageView
+               android:id="@+id/my_image"
+               android:scaleType="fitXY"
+               android:src="@drawable/user1"
+               android:layout_width="35dp"
+               android:layout_height="35dp" />
+
+           <TextView
+               android:id="@+id/my_text"
+               android:layout_width="wrap_content"
+               android:layout_height="match_parent"
+               android:text="我的" />
+       </LinearLayout>
+   </LinearLayout>
+</LinearLayout>
