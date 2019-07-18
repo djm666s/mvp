@@ -2,15 +2,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.mvp">
-    <!--<uses-permission android:name="android.permission.CAMERA"/>-->
+    <!-- <uses-permission android:name="android.permission.CAMERA"/> -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-    <uses-permission android:name="android.permission.WRITE_SETTINGS"
-        tools:ignore="ProtectedPermissions" />
-    <!-- 请求访问网络状态 -->
+    <uses-permission
+        android:name="android.permission.WRITE_SETTINGS"
+        tools:ignore="ProtectedPermissions" /> <!-- 请求访问网络状态 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:name=".util.MyApplication"
         android:allowBackup="true"
@@ -19,9 +20,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.VideoActivity">
-
-        </activity>
+        <activity
+            android:name=".activity.OnActivity"
+            android:label="@string/title_activity_on"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".activity.VideoActivity"></activity>
         <activity android:name=".activity.Main2Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,11 +35,8 @@
         <activity android:name=".activity.NewItemActivity" />
         <activity android:name=".activity.GanHuoActivity" />
         <activity android:name=".activity.ImageActivity" />
-        <activity android:name=".MainActivity">
-
-        </activity>
-        <activity android:name=".activity.TestActivity" />
-
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".activity.TestActivity" /> <!-- android7.0照片动态权限需求 -->
         <provider
             android:name=".util.MyFileProvider"
             android:authorities="${applicationId}.fileProvider"
@@ -44,7 +44,7 @@
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths"/>
+                android:resource="@xml/file_paths" />
         </provider>
     </application>
 

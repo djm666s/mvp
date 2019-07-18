@@ -67,6 +67,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/on"
             android:padding="8dp"
             android:background="@color/wc"
             android:layout_width="match_parent"

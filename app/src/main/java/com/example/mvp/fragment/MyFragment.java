@@ -31,11 +31,11 @@ import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
 
 import com.example.mvp.R;
+import com.example.mvp.activity.OnActivity;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -110,7 +110,7 @@ public class MyFragment extends Fragment implements View.OnClickListener {
     }
 
     @OnClick(R.id.touxiang)
-    public void onViewClicked() {
+    public void onViewClicked1() {
         openPopWindow(contentView);
     }
 
@@ -457,5 +457,10 @@ public class MyFragment extends Fragment implements View.OnClickListener {
         Bitmap bitmap = Bitmap.createBitmap(bgimage, 0, 0, (int) width,
                 (int) height, matrix, true);
         return bitmap;
+    }
+
+    @OnClick(R.id.on)
+    public void onViewClicked() {
+        startActivity(new Intent(getContext(), OnActivity.class));
     }
 }

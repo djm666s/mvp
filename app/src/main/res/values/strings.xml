@@ -5,4 +5,5 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="newitem1">知乎日报</string>
     <string name="newitem2">头条推荐</string>
+    <string name="title_activity_on">OnActivity</string>
 </resources>

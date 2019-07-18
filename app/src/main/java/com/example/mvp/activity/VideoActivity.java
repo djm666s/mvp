@@ -39,7 +39,7 @@ public class VideoActivity extends AppCompatActivity {
     }
 
     private void init() {
-        String url = "https://vd3.bdstatic.com/mda-ih5tqepz6p2m45rs/sc/mda-ih5tqepz6p2m45rs.mp4?auth_key=1562926127-0-0-e21ab3ab0ecbe0b98c437ee8270ad310&bcevod_channel=searchbox_feed&pd=bjh&abtest=all";
+        String url = "http://player.bilibili.com/player.html?aid=55078092&cid=96312282&page=1";
 
         //增加封面
         ImageView imageView = new ImageView(this);
