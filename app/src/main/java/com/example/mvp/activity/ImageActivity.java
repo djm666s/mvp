@@ -1,5 +1,6 @@
 package com.example.mvp.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -9,6 +10,7 @@ import com.example.mvp.BuildConfig;
 import com.example.mvp.R;
 import com.example.mvp.api.BaseApi;
 import com.example.mvp.helper.RetrofitHelper;
+import com.example.mvp.service.DownloadScervice;
 import com.example.mvp.util.DownloadUtil;
 import com.example.mvp.util.GrideUtil;
 
@@ -42,32 +44,8 @@ public class ImageActivity extends AppCompatActivity {
 
     @OnClick(R.id.xiazai)
     public void onViewClicked() {
-
-        RetrofitHelper.getInstance().chenge(BaseApi.Dowanload);
-        Observable<ResponseBody> observable = RetrofitHelper.getInstance().getApi().getDolwanload(getIntent().getStringExtra("url"));
-        observable.subscribeOn(Schedulers.io()).
-                observeOn(AndroidSchedulers.mainThread()).
-                subscribe(new Observer<ResponseBody>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
-
-                    }
-
-                    @Override
-                    public void onNext(ResponseBody body) {
-                        DownloadUtil.DownloadPic(getIntent().getStringExtra("url"), body);
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-//                        Toast.makeText(ImageActivity.this, "onError", Toast.LENGTH_SHORT).show();
-                        if (BuildConfig.DEBUG) Log.d("ImageActivity", e.toString());
-                    }
-
-                    @Override
-                    public void onComplete() {
-
-                    }
-                });
+        Intent intent = new Intent(this, DownloadScervice.class);
+        intent.putExtra("url", getIntent().getStringExtra("url"));
+        startService(intent);
     }
 }

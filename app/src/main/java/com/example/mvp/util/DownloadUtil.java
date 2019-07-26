@@ -7,6 +7,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.example.mvp.BuildConfig;
+import com.example.mvp.util.inter.Download;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -23,38 +24,49 @@ import okhttp3.ResponseBody;
  * @date 2019/7/19 10:26
  */
 public class DownloadUtil {
-    public static void DownloadPic(String url, ResponseBody body) {
+    private Download mDownload;
+
+    public DownloadUtil(Download download) {
+        this.mDownload = download;
+    }
+
+    public void DownloadPic(String url, ResponseBody body ) {
+
         if (Environment.getExternalStorageState().equals(
                 Environment.MEDIA_MOUNTED)) {
-            @SuppressLint("SdCardPath") File dir=new File("/sdcard/");
-            if (!dir.exists()){
+            @SuppressLint("SdCardPath") File dir = new File("/sdcard/");
+            if (!dir.exists()) {
                 dir.mkdir();
             }
-            @SuppressLint("SdCardPath") File file = new File("/sdcard/"+url.substring(url.length()-8,url.length()));
-            if (!file.exists()){
+            @SuppressLint("SdCardPath") File file = new File("/sdcard/" + url.substring(url.length() - 8, url.length()));
+            if (!file.exists()) {
                 try {
                     file.createNewFile();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
-
+            long downall = 0;
+            long downnow = 0;
             InputStream in = null;
             OutputStream os = null;
-
             try {
                 byte[] byteszie = new byte[2048];
                 in = body.byteStream();
+                downall = body.contentLength();
 //            Toast.makeText(MyApplication.getContext(), "body.contentLength():" + body.contentLength(), Toast.LENGTH_SHORT).show();
                 os = new FileOutputStream(file);
                 int read;
                 try {
                     while ((read = in.read(byteszie)) != -1) {
                         os.write(byteszie, 0, read);
+                        downnow += read;
+                        mDownload.onProgess((int) (downnow * 100 / downall));
                     }
                     os.flush();
+                    mDownload.onSuccess();
 //                Toast.makeText(MyApplication.getContext(), "下载成功" + file.getPath().toString(), Toast.LENGTH_SHORT).show();
-                    Toast.makeText(MyApplication.getContext(), "下载成功", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(MyApplication.getContext(), "下载成功", Toast.LENGTH_SHORT).show();
                 } catch (IOException e) {
                     e.printStackTrace();
                 } finally {
@@ -69,14 +81,16 @@ public class DownloadUtil {
                         try {
                             os.close();
                         } catch (IOException e) {
+                            mDownload.onFailed();
                             e.printStackTrace();
                         }
                     }
                 }
             } catch (FileNotFoundException e) {
+                mDownload.onFailed();
                 e.printStackTrace();
             }
-        }else{
+        } else {
 
         }
     }
