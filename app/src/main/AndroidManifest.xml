@@ -38,7 +38,8 @@
         <activity android:name=".activity.GanHuoActivity" />
         <activity android:name=".activity.ImageActivity" />
         <activity android:name=".MainActivity"></activity>
-        <activity android:name=".activity.TestActivity" /> <!-- android7.0照片动态权限需求 -->
+        <activity android:name=".activity.TestActivity" />
+        <!-- android7.0照片动态权限需求 -->
         <provider
             android:name=".util.MyFileProvider"
             android:authorities="${applicationId}.fileProvider"

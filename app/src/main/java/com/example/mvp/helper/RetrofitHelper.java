@@ -1,4 +1,4 @@
-package com.example.mvp.hlper;
+package com.example.mvp.helper;
 
 import com.example.mvp.api.BaseApi;
 
@@ -6,11 +6,11 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class RetrofitHlper {
+public class RetrofitHelper {
     private Retrofit retrofit;
     private BaseApi api;
 
-    private RetrofitHlper() {
+    private RetrofitHelper() {
         retrofit = new Retrofit.Builder()
                 .baseUrl(api.HOST)
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
@@ -23,7 +23,7 @@ public class RetrofitHlper {
      * 创建单例模式
      */
     private static class SlinRetrofitHlper {
-        private static final RetrofitHlper INSTANCE = new RetrofitHlper();
+        private static final RetrofitHelper INSTANCE = new RetrofitHelper();
     }
 
     /**
@@ -31,7 +31,7 @@ public class RetrofitHlper {
      *
      * @return
      */
-    public static RetrofitHlper getInstance() {
+    public static RetrofitHelper getInstance() {
         return SlinRetrofitHlper.INSTANCE;
     }
 

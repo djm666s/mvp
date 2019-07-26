@@ -354,6 +354,7 @@ public class MyFragment extends Fragment implements View.OnClickListener {
 //        mHeadCachePath = mHeadCacheFile.getAbsolutePath();
 
         mUriPath = Uri.parse("file://" + mFile.getAbsolutePath());
+
         //将裁剪好的图输出到所建文件中
         intent.putExtra(MediaStore.EXTRA_OUTPUT, mUriPath);
         intent.putExtra("outputFormat", Bitmap.CompressFormat.JPEG.toString());

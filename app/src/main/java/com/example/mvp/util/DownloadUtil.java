@@ -38,6 +38,7 @@ public class DownloadUtil {
                     e.printStackTrace();
                 }
             }
+
             InputStream in = null;
             OutputStream os = null;
 

@@ -21,7 +21,7 @@ import com.example.mvp.view.PhotoView;
 import com.example.mvp.activity.ImageActivity;
 import com.example.mvp.adapter.PhotoAdaoter;
 import com.example.mvp.bean.PhotoBean;
-import com.example.mvp.hlper.URLContent;
+import com.example.mvp.helper.URLContent;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;

@@ -1,22 +1,12 @@
 package com.example.mvp.util;
 
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.util.AttributeSet;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.example.mvp.api.BaseApi;
-import com.example.mvp.hlper.RetrofitHlper;
 import com.panxw.android.imageindicator.ImageIndicatorView;
 
 import java.util.List;
-
-import io.reactivex.Observer;
-import io.reactivex.Scheduler;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.schedulers.Schedulers;
 
 /**
  * @Author djm
